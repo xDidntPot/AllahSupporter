@@ -1,6 +1,10 @@
 # AllahSupporter
 For those who support the word of Allah.
 
+# Disclaimer 
+It's not meant to be racist, but just a shitpost against
+people who believe that way. Please do not take this plugin seriously.
+
 # How To Use
 Add plugin to your server, and join it.
 The plugin textures you as a penguin.
