@@ -1,0 +1,5 @@
+name: AllahSupporter
+version: 1.0.0
+main: JustTal\AllahSupporter\Main
+api: 3.16.0
+extensions: ["gd"]
