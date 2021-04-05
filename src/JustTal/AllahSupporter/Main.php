@@ -46,9 +46,9 @@ class Main extends PluginBase implements Listener {
 
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
 		
-		foreach ([ArabicLightning::class] as $entityClass) { // more to come! >:]
+	foreach ([ArabicLightning::class] as $entityClass) { // more to come! >:]
             Entity::registerEntity($entityClass, true);
-	    }
+	}
     }
 
     public function loadPack() : void {
@@ -96,23 +96,23 @@ class Main extends PluginBase implements Listener {
             $packet->volume = 100;
             $packet->pitch = 1;
 			
-			$entities = $player->getLevel()->getNearbyEntities($player->getBoundingBox()->expandedCopy(20, 20, 20), $player);
+	    $entities = $player->getLevel()->getNearbyEntities($player->getBoundingBox()->expandedCopy(20, 20, 20), $player);
             foreach ($entities as $entity) {
                 if ($entity instanceof Projectile) {
-					if ($entity->getOwningEntity() !== $player) {
-                        $entity->setMotion($entity->getMotion()->multiply(-1));
-                    }
-                } else {
-                    if (!$entity instanceof ItemEntity && !$entity instanceof ExperienceOrb && !isset($entity->namedtag->getValue()["SlapperVersion"])) {
-						$this->getScheduler()->scheduleDelayedTask(new ClosureTask(function (int $currentTick) use ($player, $entity) : void {
-							$x = $entity->getX();
-							$y = $entity->getY();
-							$z = $entity->getZ();
-							$pos = new Position($x, $y, $z);
-							$lightning = Entity::createEntity("ArabicLightning", $player->getLevel(), Entity::createBaseNBT($pos, null, 1, 1));
-							$lightning->setOwningEntity($player);
-							$lightning->spawnToAll();
-						}), 30);
+			if ($entity->getOwningEntity() !== $player) {
+                        	$entity->setMotion($entity->getMotion()->multiply(-1));
+                    	}
+                    } else {
+                    	if (!$entity instanceof ItemEntity && !$entity instanceof ExperienceOrb && !isset($entity->namedtag->getValue()["SlapperVersion"])) {
+				$this->getScheduler()->scheduleDelayedTask(new ClosureTask(function (int $currentTick) use ($player, $entity) : void {
+				$x = $entity->getX();
+				$y = $entity->getY();
+				$z = $entity->getZ();
+				$pos = new Position($x, $y, $z);
+				$lightning = Entity::createEntity("ArabicLightning", $player->getLevel(), Entity::createBaseNBT($pos, null, 1, 1));
+				$lightning->setOwningEntity($player);
+				$lightning->spawnToAll();
+			}), 30);
                     }
                 }
             }
@@ -146,5 +146,4 @@ class Main extends PluginBase implements Listener {
         @imagedestroy($img);
         return $bytes;
     }
-
 }
