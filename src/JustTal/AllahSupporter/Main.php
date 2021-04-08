@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace JustTal\AllahSupporter;
 
 use pocketmine\entity\Skin;
-use pocketmine\entity\Effect;
 use pocketmine\entity\Entity;
-use pocketmine\entity\EffectInstance;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerJoinEvent;
